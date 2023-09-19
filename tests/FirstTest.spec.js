@@ -8,7 +8,6 @@ test('first test case playwright',async ({browser})=>
 chrome - Plugins/ cookies
 const context =await browser.newContext(); //remove the cookies
 const page= await context.newPage(); //newpage method, 
-await page.goto("https://playwright.dev/");
-
+await page.goto("https://test.jobtrain.co.uk/ybscareers/Home/Job");
 
 });
