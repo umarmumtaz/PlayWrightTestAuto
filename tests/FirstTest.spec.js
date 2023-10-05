@@ -11,4 +11,7 @@ test.only('first test case playwright',async ({page})=>
 await page.goto("https://test.jobtrain.co.uk/ybscareers/Home/Job");
 console.log(await page.title()); 
 await expect(page).toHaveTitle("Jobs Page - YBS Careers | Jobs | Search here for your perfect career");
+await page.getByLabel('Allow cookies').click();
+await page.getByRole('link', { name: 'Sign in' }).click();
+
 });     
