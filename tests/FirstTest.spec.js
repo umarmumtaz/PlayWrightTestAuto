@@ -1,5 +1,5 @@
 const {test, expect}=require('@playwright/test')
-test('first test case playwright',async ({page})=>
+test.only('first test case playwright',async ({page})=>
 {
 //javascript is based on async, so to use hold on, that is await with every step
 //if there is no fuction name is call aynonomous function, and just b like [async()=>] instad of async function()
@@ -10,5 +10,5 @@ test('first test case playwright',async ({page})=>
 //npx playwright test --headed
 await page.goto("https://test.jobtrain.co.uk/ybscareers/Home/Job");
 console.log(await page.title()); 
-await expect(page).toHaveTitle("Jobs Pagne - YBS Careers | Jobs | Search here for your perfect career");
+await expect(page).toHaveTitle("Jobs Page - YBS Careers | Jobs | Search here for your perfect career");
 });     
