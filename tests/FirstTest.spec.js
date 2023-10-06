@@ -1,6 +1,5 @@
 const { test, expect } = require('@playwright/test')
 
-
 test('Ybs Signin with happy scenario', async ({ page }) => {
     //javascript is based on async, so to use hold on, that is await with every step
     //if there is no fuction name is call aynonomous function, and just b like [async()=>] instad of async function()
@@ -18,7 +17,6 @@ test('Ybs Signin with happy scenario', async ({ page }) => {
     await page.locator('#inputPassword').type('Testing@123')
     await page.locator('#signIn').click();
 });
-
 test.only('ybs Login with -scenarios', async ({ page }) => {
     await page.goto("https://test.jobtrain.co.uk/ybscareers/Home/Job");
     console.log(await page.title());
@@ -30,5 +28,4 @@ test.only('ybs Login with -scenarios', async ({ page }) => {
     await page.locator('#signIn').click();
     console.log(await page.locator('.alert-danger').textContent());
     await expect(page.locator('.alert-danger')).toContainText('Invalid UserName Or Password.');
-
 });
