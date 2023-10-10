@@ -23,7 +23,7 @@ test('test with negative data', async ({ page }) => {
     await page.locator('#signIn').click();
 });
 
-test('test with the happy scenario', async ({ page }) => {
+test.only('test with the happy scenario', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel('Allow cookies').click();
     await page.getByRole('link', { name: 'Sign in' }).click();
@@ -32,7 +32,8 @@ test('test with the happy scenario', async ({ page }) => {
     await page.locator('#signIn').click()
     await expect(page).toHaveURL(/MyJobs/);
     await page.locator('#navbarDropdownMenuLink2').click()
-    //await page.locator('.btn btn-sm').click();
+    await page.locator('#navbarDropdownMenu').click();
+    //await expect(page).toHaveTitle('Jobs Page');
 
 });
 
