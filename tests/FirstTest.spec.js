@@ -23,7 +23,7 @@ test('test with negative data', async ({ page }) => {
     await page.locator('#signIn').click();
 });
 
-test.only('test with the happy scenario', async ({ page }) => {
+test('test with the happy scenario', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel('Allow cookies').click();
     await page.getByRole('link', { name: 'Sign in' }).click();
