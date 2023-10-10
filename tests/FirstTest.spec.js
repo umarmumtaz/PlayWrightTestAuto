@@ -37,6 +37,12 @@ test('test with the happy scenario', async ({ page }) => {
 
 });
 
+test.only('verifying the job listing', async ({ page }) => {
+    await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
+    await page.getByLabel('Allow cookies').click();
+    console.log(await page.locator('.job-card__link').nth(0).textContent());
+
+});
 
 
 
