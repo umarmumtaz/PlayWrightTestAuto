@@ -37,11 +37,23 @@ test('test with the happy scenario', async ({ page }) => {
 
 });
 
-test.only('verifying the job listing', async ({ page }) => {
+test('verifying the job listing card heading', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel('Allow cookies').click();
     // console.log(await page.locator('.job-card__link').nth(0).textContent());
     console.log(await page.textContent('.job-card__link'));
+});
+
+
+test.only('verifying the job listing with variables', async ({ browser }) => {
+    const context = await browser.newContext();
+    const page = await context.newPage();
+    const jobtitles = page.locator('.job-card__link')
+    await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
+    await page.getByLabel('Allow cookies').click();
+    await page.locator(".job-card__link").first().textContent()
+    await page.locator(".job-card__link").nth(1).textContent()
+
 });
 
 
