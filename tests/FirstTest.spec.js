@@ -54,18 +54,26 @@ test('verifying the job listing with variables', async ({ browser }) => {
     await page.locator(".job-card__link").first().textContent()
     await page.locator(".job-card__link").nth(1).textContent()
     await page.waitForLoadState('networkidle')
-    const allTitles=await jobtitles.allTextContents();
+    const allTitles = await jobtitles.allTextContents();
     console.log(allTitles);
 });
 
 
-test.only('verifying the job details', async ({ page }) => {
+test('verifying the job details', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.locator('//*[@id="searchResultsItems"]/div[1]/div[2]/p/a').click();
     await expect(page).toHaveTitle("Job Information  - YBS Careers | Jobs | Search here for your perfect career");
     await page.waitForLoadState('networkidle')
-    const titles=await page.locator(".job-card__link").allTextContents()
+    const titles = await page.locator(".job-card__link").allTextContents()
     console.log(titles);
 });
 
 
+test.only('verifying the select values in the drodown', async ({ page }) => {
+    await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
+    //     const dropdown=page.locator(".form-select");
+    //    await dropdown.selectOption('2');
+    //     await page.pause();
+    await page.getByLabel('Set a distance from the location or postcode that you are willing to travel for work').selectOption('2');
+    await page.pause()
+});
