@@ -28,3 +28,5 @@ test('get started link', async ({ page }) => {
     // const context =await browser.newContext(); //remove the cookies
     // const page= await context.newPage(); //newpage method, 
     // npx playwright test --headed
+    //npx playwright codegen
+    //npx playwright test ./tests/FirstTest.spec.js --headed

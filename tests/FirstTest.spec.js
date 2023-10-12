@@ -68,12 +68,20 @@ test('verifying the job details', async ({ page }) => {
     console.log(titles);
 });
 
-
-test.only('verifying the select values in the drodown', async ({ page }) => {
+test('verifying the select values in the drodown', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     //     const dropdown=page.locator(".form-select");
     //    await dropdown.selectOption('2');
     //     await page.pause();
     await page.getByLabel('Set a distance from the location or postcode that you are willing to travel for work').selectOption('2');
+    await page.getByLabel('Regions').selectOption("East Anglia");
+    await page.locator("#searchFiltersApplyButton").click();
+    await page.pause()
+});
+test('verifying the select values in the drodowns more', async ({ page }) => {
+    await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
+    await page.getByLabel(' Distance').selectOption('50');
+    await page.getByLabel('Regions').selectOption("East Anglia");
+    await page.locator("#searchFiltersApplyButton").click();
     await page.pause()
 });
