@@ -17,7 +17,7 @@ test('Ybs Signin with - blank data', async ({ page }) => {
 test('test with negative data', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel('Allow cookies').click();
-    await page.getByRole('link', { name: 'Sign in' }).click();
+    await page.getByRole('link', { name:'Sign in'}).click();
     await page.locator('#signInEmail').type('test@gmail.com')
     await page.locator('#inputPassword').type('Testing123')
     await page.locator('#signIn').click();
@@ -27,7 +27,7 @@ test('test with the happy scenario', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel('Allow cookies').click();
     await page.getByRole('link', { name: 'Sign in' }).click();
-    await page.getByPlaceholder('Email goes here').type('nanncykevin@gmail.com')
+    await page.getByPlaceholder('Email goes here').type('nanncy5@gmail.com')
     await page.getByPlaceholder('Password').type('Testing@123')
     await page.locator('#signIn').click()
     await expect(page).toHaveURL(/MyJobs/);
