@@ -45,7 +45,7 @@ test('verifying the job listing card heading', async ({ page }) => {
 });
 
 
-test.only('verifying the job listing with variables', async ({ browser }) => {
+test('verifying the job listing with variables', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
     const jobtitles = page.locator('.job-card__link')
@@ -53,17 +53,19 @@ test.only('verifying the job listing with variables', async ({ browser }) => {
     await page.getByLabel('Allow cookies').click();
     await page.locator(".job-card__link").first().textContent()
     await page.locator(".job-card__link").nth(1).textContent()
+    await page.waitForLoadState('networkidle')
     const allTitles=await jobtitles.allTextContents();
     console.log(allTitles);
 });
 
 
-
-test('verifying the job details', async ({ page }) => {
+test.only('verifying the job details', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.locator('//*[@id="searchResultsItems"]/div[1]/div[2]/p/a').click();
     await expect(page).toHaveTitle("Job Information  - YBS Careers | Jobs | Search here for your perfect career");
-
+    await page.waitForLoadState('networkidle')
+    const titles=await page.locator(".job-card__link").allTextContents()
+    console.log(titles);
 });
 
 
