@@ -90,10 +90,13 @@ test('verifying the select values in the drodowns more', async ({ page }) => {
     await page.pause()
 });
 
-test.only('Verify the list of jobs', async ({ page }) => {
+test.only('Verify the total number of live jobs', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
-  const list= await page.locator('#searchResults')
- const records= await list.getByTitle('Click here to view Job detail for')  // job-card__link  await expect(page).toHaveTitle("
- console.log('number of jobs are:', await records.count())
+    const list = await page.locator('#searchResults');
+    const records = await list.getByTitle('Click here to view Job detail for');
+    console.log('Total live jobs are:', await records.count())
+
+    const result = await page.locator('#searchNoOfResults').allTextContents();
+    console.log(result)
     await page.pause()
 });
