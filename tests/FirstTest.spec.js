@@ -95,8 +95,7 @@ test.only('Verify the total number of live jobs', async ({ page }) => {
     const list = await page.locator('#searchResults');
     const records = await list.getByTitle('Click here to view Job detail for');
     console.log('Total live jobs are:', await records.count())
-
-    const result = await page.locator('#searchNoOfResults').allTextContents();
-    console.log(result)
+    const result = await page.locator('#searchNoOfResults').allInnerTexts();
+    console.log("Output result is ", result)
     await page.pause()
 });
