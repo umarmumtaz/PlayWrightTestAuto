@@ -17,7 +17,7 @@ test('Ybs Signin with - blank data', async ({ page }) => {
 test('test with negative data', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel('Allow cookies').click();
-    await page.getByRole('link', { name:'Sign in'}).click();
+    await page.getByRole('link', { name: 'Sign in' }).click();
     await page.locator('#signInEmail').type('test@gmail.com')
     await page.locator('#inputPassword').type('Testing123')
     await page.locator('#signIn').click();
@@ -86,7 +86,7 @@ test.only('verifying the select values in the drodowns more', async ({ page }) =
     await page.locator("#searchFiltersApplyButton").click();
     await page.getByText('Clear All').click();
     await page.getByText('There are 7 jobs matching').click();
-   console.log(('There are 7 jobs matching'))
+    console.log(('There are 7 jobs matching'))//static content
     await page.pause()
 });
 
