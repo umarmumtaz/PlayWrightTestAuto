@@ -82,8 +82,11 @@ test.only('verifying the select values in the drodowns more', async ({ page }) =
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel(' Distance').selectOption('50');
     await page.getByLabel('Regions').selectOption("East Anglia");
-    await page.getByText('Date Posted').selectOption("This Week");
+    await page.getByText('Date Posted').selectOption("This Month");
     await page.locator("#searchFiltersApplyButton").click();
+    await page.getByText('Clear All').click();
+    await page.getByText('There are 7 jobs matching').click();
+   console.log(('There are 7 jobs matching'))
     await page.pause()
 });
 
