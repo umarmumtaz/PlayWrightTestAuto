@@ -78,10 +78,13 @@ test('verifying the select values in the drodown', async ({ page }) => {
     await page.locator("#searchFiltersApplyButton").click();
     await page.pause()
 });
-test('verifying the select values in the drodowns more', async ({ page }) => {
+test.only('verifying the select values in the drodowns more', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel(' Distance').selectOption('50');
     await page.getByLabel('Regions').selectOption("East Anglia");
+    await page.getByText('This Month').selectOption("This Week");
     await page.locator("#searchFiltersApplyButton").click();
     await page.pause()
 });
+
+
