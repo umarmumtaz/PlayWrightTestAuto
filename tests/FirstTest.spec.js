@@ -78,7 +78,7 @@ test('verifying the select values in the drodown', async ({ page }) => {
     await page.locator("#searchFiltersApplyButton").click();
     await page.pause()
 });
-test.only('verifying the select values in the drodowns more', async ({ page }) => {
+test('verifying the select values in the drodowns more', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel(' Distance').selectOption('50');
     await page.getByLabel('Regions').selectOption("East Anglia");
@@ -90,4 +90,10 @@ test.only('verifying the select values in the drodowns more', async ({ page }) =
     await page.pause()
 });
 
-
+test.only('Verify the list of jobs', async ({ page }) => {
+    await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
+  const list= await page.locator('#searchResults')
+ const records= await list.getByTitle('Click here to view Job detail for')  // job-card__link  await expect(page).toHaveTitle("
+ console.log('number of jobs are:', await records.count())
+    await page.pause()
+});
