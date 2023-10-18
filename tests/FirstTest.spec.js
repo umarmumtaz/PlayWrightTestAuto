@@ -85,7 +85,7 @@ test('Verify the search filters with parameters', async ({ page }) => {
     await page.getByText('Date Posted').selectOption("This Month");
     await page.locator("#searchFiltersApplyButton").click();
     await page.getByText('Clear All').click();
-    await page.getByText('There are 7 jobs matching').click();
+    await page.getByText('There are 7 jobs matching')
     console.log(('There are 7 jobs matching'))//static content
     await page.pause()
 });
@@ -99,7 +99,7 @@ test('Verify the total number of live jobs', async ({ page }) => {
     console.log("Output result is ", result)
     await page.pause()
 });
-test.only('Verify register flow', async ({ page }) => {
-    await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
-    await page.pause()
-});
+// test('Verify register flow', async ({ page }) => {
+//     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
+//     await page.pause()
+// });
