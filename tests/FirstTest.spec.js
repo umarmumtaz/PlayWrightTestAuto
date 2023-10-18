@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test')
 
-test('Ybs Signin with - blank data', async ({ page }) => {
+test('Login with Blank Date', async ({ page }) => {
 
     await page.goto("https://test.jobtrain.co.uk/ybscareers/Home/Job");
     console.log(await page.title());
@@ -14,7 +14,7 @@ test('Ybs Signin with - blank data', async ({ page }) => {
     await expect(page.locator('.alert-danger')).toContainText('Invalid UserName Or Password.');
 });
 
-test('test with negative data', async ({ page }) => {
+test('Login wiht -ve scenarios', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel('Allow cookies').click();
     await page.getByRole('link', { name: 'Sign in' }).click();
@@ -23,7 +23,7 @@ test('test with negative data', async ({ page }) => {
     await page.locator('#signIn').click();
 });
 
-test('test with the happy scenario', async ({ page }) => {
+test('Login with happy scenarios', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel('Allow cookies').click();
     await page.getByRole('link', { name: 'Sign in' }).click();
@@ -37,7 +37,7 @@ test('test with the happy scenario', async ({ page }) => {
 
 });
 
-test('verifying the job listing card heading', async ({ page }) => {
+test('Verify the job listing titles', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel('Allow cookies').click();
     // console.log(await page.locator('.job-card__link').nth(0).textContent());
@@ -68,7 +68,7 @@ test('verifying the job details', async ({ page }) => {
     console.log(titles);
 });
 
-test('verifying the select values in the drodown', async ({ page }) => {
+test('verifying the filters in the job listing page', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     //     const dropdown=page.locator(".form-select");
     //    await dropdown.selectOption('2');
@@ -78,7 +78,7 @@ test('verifying the select values in the drodown', async ({ page }) => {
     await page.locator("#searchFiltersApplyButton").click();
     await page.pause()
 });
-test('verifying the select values in the drodowns more', async ({ page }) => {
+test('Verify the search filters with parameters', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel(' Distance').selectOption('50');
     await page.getByLabel('Regions').selectOption("East Anglia");
@@ -90,12 +90,16 @@ test('verifying the select values in the drodowns more', async ({ page }) => {
     await page.pause()
 });
 
-test.only('Verify the total number of live jobs', async ({ page }) => {
+test('Verify the total number of live jobs', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     const list = await page.locator('#searchResults');
     const records = await list.getByTitle('Click here to view Job detail for');
     console.log('Total live jobs are:', await records.count())
     const result = await page.locator('#searchNoOfResults').allInnerTexts();
     console.log("Output result is ", result)
+    await page.pause()
+});
+test.only('Verify register flow', async ({ page }) => {
+    await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.pause()
 });
