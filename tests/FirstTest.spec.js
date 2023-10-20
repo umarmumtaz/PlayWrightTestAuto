@@ -117,7 +117,9 @@ test.only('Verify register 2nd step', async ({ page }) => {
     await page.locator('#FirstName').type('celinna')
     await page.locator('#LastName').type('clonin')
     await page.locator('#Mobile').type('+441172345678')
-    await page.getByPlaceholder('I agree to the ').click()
-
+    //await page.getByText('I agree to the').click() or just use this one isnted of expect
+    expect(await page.isChecked('#customCheck1')).toBeFalsy()
+    await page.getByText('I agree to the').click()
+    expect(await page.isChecked('#customCheck1')).toBeTruthy()
     await page.pause()
 });
