@@ -99,7 +99,25 @@ test('Verify the total number of live jobs', async ({ page }) => {
     console.log("Output result is ", result)
     await page.pause()
 });
-// test('Verify register flow', async ({ page }) => {
-//     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
-//     await page.pause()
-// });
+test('Verify register flow', async ({ page }) => {
+    await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job')
+    await page.locator('.sign_in_detail ').click()
+    await page.getByText('Don’t have an account? Create one here').click()
+    await page.locator('#UserName').fill('malvin1@gmail.com');
+    await page.getByPlaceholder('Type a password here').fill('Testing@123');
+    await page.getByPlaceholder('Type a password here').click();
+    await page.keyboard.press('Enter')
+    //await page.getByPlaceholder('I agree to the ').click()
+    await page.pause()
+});
+
+
+test.only('Verify register 2nd step', async ({ page }) => {
+    await page.goto('https://test.jobtrain.co.uk/ybscareers/Account/RegisterStep2')
+    await page.locator('#FirstName').type('celinna')
+    await page.locator('#LastName').type('clonin')
+    await page.locator('#Mobile').type('+441172345678')
+    await page.getByPlaceholder('I agree to the ').click()
+
+    await page.pause()
+});

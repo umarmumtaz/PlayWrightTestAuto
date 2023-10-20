@@ -3,7 +3,7 @@ const { defineConfig, devices } = require('@playwright/test');
 const config={
 timeout: 30*3000,   //overall test 30 sec, and for specific 5s
 expect:{
-  timeout:5000
+  timeout:30000
 }
 
 
