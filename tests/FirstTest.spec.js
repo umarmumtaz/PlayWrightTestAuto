@@ -1,7 +1,6 @@
 const { test, expect } = require('@playwright/test')
 
 test('Login with Blank Date', async ({ page }) => {
-
     await page.goto("https://test.jobtrain.co.uk/ybscareers/Home/Job");
     console.log(await page.title());
     await expect(page).toHaveTitle("Jobs Page - YBS Careers | Jobs | Search here for your perfect career");
@@ -13,7 +12,6 @@ test('Login with Blank Date', async ({ page }) => {
     console.log(await page.locator('.alert-danger').textContent());
     await expect(page.locator('.alert-danger')).toContainText('Invalid UserName Or Password.');
 });
-
 test('Login wiht -ve scenarios', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel('Allow cookies').click();
@@ -22,7 +20,6 @@ test('Login wiht -ve scenarios', async ({ page }) => {
     await page.locator('#inputPassword').type('Testing123')
     await page.locator('#signIn').click();
 });
-
 test('Login with happy scenarios', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel('Allow cookies').click();
@@ -34,17 +31,13 @@ test('Login with happy scenarios', async ({ page }) => {
     await page.locator('#navbarDropdownMenuLink2').click()
     await page.locator('#navbarDropdownMenu').click();
     //await expect(page).toHaveTitle('Jobs Page');
-
 });
-
 test('Verify the job listing titles', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel('Allow cookies').click();
     // console.log(await page.locator('.job-card__link').nth(0).textContent());
     console.log(await page.textContent('.job-card__link'));
 });
-
-
 test('verifying the job listing with variables', async ({ browser }) => {
     const context = await browser.newContext();
     const page = await context.newPage();
@@ -57,8 +50,6 @@ test('verifying the job listing with variables', async ({ browser }) => {
     const allTitles = await jobtitles.allTextContents();
     console.log(allTitles);
 });
-
-
 test('verifying the job details', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.locator('//*[@id="searchResultsItems"]/div[1]/div[2]/p/a').click();
@@ -67,7 +58,6 @@ test('verifying the job details', async ({ page }) => {
     const titles = await page.locator(".job-card__link").allTextContents()
     console.log(titles);
 });
-
 test('verifying the filters in the job listing page', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     //     const dropdown=page.locator(".form-select");
@@ -89,7 +79,6 @@ test('Verify the search filters with parameters', async ({ page }) => {
     console.log(('There are 7 jobs matching'))//static content
     await page.pause()
 });
-
 test('Verify the total number of live jobs', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     const list = await page.locator('#searchResults');
@@ -111,8 +100,7 @@ test('Verify register flow', async ({ page }) => {
     await page.pause()
 });
 
-
-test.only('Verify register 2nd step', async ({ page }) => {
+test('Verify register 2nd step', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Account/RegisterStep2')
     await page.locator('#FirstName').type('celinna')
     await page.locator('#LastName').type('clonin')
@@ -121,5 +109,24 @@ test.only('Verify register 2nd step', async ({ page }) => {
     expect(await page.isChecked('#customCheck1')).toBeFalsy()
     await page.getByText('I agree to the').click()
     expect(await page.isChecked('#customCheck1')).toBeTruthy()
+    await page.pause()
+});
+test.only('Verify Quick  menu', async ({ page }) => {
+    await page.goto('https://test.jobtrain.co.uk/ybscareers/')
+    await page.locator('.sign_in_detail').click()
+    await page.getByPlaceholder('Email goes here').type('nanncy5@gmail.com')
+    await page.getByPlaceholder('Password').type('Testing@123')
+    await page.locator('#signIn').click()
+    await expect(page).toHaveURL(/MyJobs/);
+    await page.getByText('Applications', 'Saved')
+    await page.getByRole('button').click()
+    await page.getByLabel('My Job Alerts').getByRole('link', { name: 'notifications_none My Job Alerts' }).click();
+    await expect(page.locator('.h3')).toHaveText(/Alerts/);
+    await page.getByRole('button').click()
+    await page.getByLabel('My Emails').getByRole('link', { name: 'mail_outline My Emails' }).click();
+    await expect(page.locator('.h3')).toHaveText(/Emails/);
+    await page.getByRole('button').click()
+    await page.getByLabel('My account ').getByRole('link', { name: 'settings My account' }).click();
+    await expect(page.locator('.h3')).toHaveText(/account/, { ignoreCase: true });
     await page.pause()
 });
