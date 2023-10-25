@@ -111,7 +111,7 @@ test('Verify register 2nd step', async ({ page }) => {
     expect(await page.isChecked('#customCheck1')).toBeTruthy()
     await page.pause()
 });
-test.only('Verify Quick  menu', async ({ page }) => {
+test.only('Verify Quick  Menu', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/')
     await page.locator('.sign_in_detail').click()
     await page.getByPlaceholder('Email goes here').type('nanncy5@gmail.com')
@@ -128,5 +128,12 @@ test.only('Verify Quick  menu', async ({ page }) => {
     await page.getByRole('button').click()
     await page.getByLabel('My account ').getByRole('link', { name: 'settings My account' }).click();
     await expect(page.locator('.h3')).toHaveText(/account/, { ignoreCase: true });
+    await page.getByRole('button').click()
+    await page.getByLabel('FAQs').getByRole('link', { name: 'quiz FAQs' }).click();
+    await expect(page.locator('.h3')).toHaveText(/faq/, { ignoreCase: true });
     await page.pause()
 });
+
+
+
+
