@@ -9,7 +9,7 @@
     //npx playwright codegen
     //npx playwright test ./tests/FirstTest.spec.js --headed
 
-
+// npx playwright test ./tests/randomEmails.spec.js
 
     
   //   test('verifying the max values', async ({ page }) => {

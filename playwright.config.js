@@ -38,6 +38,7 @@ module.exports = defineConfig({
     name: 'chromium',
     headless : true,
     trace: 'on-first-retry',
+
   },
 
   /* Configure projects for major browsers */
@@ -45,6 +46,7 @@ module.exports = defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      
     },
 
     // {
