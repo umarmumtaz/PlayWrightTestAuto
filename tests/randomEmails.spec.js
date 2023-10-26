@@ -55,6 +55,7 @@ test.only('Register Step-1', async ({ page }) => {
     await page.getByPlaceholder('Type a password here').fill('Testing@123');
     await page.getByPlaceholder('Type a password here').click();
     await page.keyboard.press('Enter');
+    console.log('Generated Random Email:', randomEmail);
     await page.pause();
 });
 
