@@ -45,9 +45,13 @@ test('Verify register 2nd step', async ({ page }) => {
 });
 
 
-
+//-----------------final one
 test.only('Register Step-1', async ({ page }) => {
+    await page.context().clearCookies();
+
+    await page.reload({ hard: true });
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
+
     await page.locator('.sign_in_detail').click();
     await page.getByText('Don’t have an account? Create one here').click();
     const randomEmail = generateRandomEmail(); // Generate a random email
@@ -56,9 +60,10 @@ test.only('Register Step-1', async ({ page }) => {
     await page.getByPlaceholder('Type a password here').click();
     await page.keyboard.press('Enter');
     console.log('Generated Random Email:', randomEmail);
+   // await page.locator('#register').click();
     await page.pause();
-});
 
+});
 function generateRandomEmail() {
     const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
     let randomEmail = '';
@@ -66,5 +71,5 @@ function generateRandomEmail() {
         const randomIndex = Math.floor(Math.random() * characters.length);
         randomEmail += characters.charAt(randomIndex);
     }
-    return `${randomEmail}@example.com`;
+    return `${randomEmail}@jt.com`;
 }
