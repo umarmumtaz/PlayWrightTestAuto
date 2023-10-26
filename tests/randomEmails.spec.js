@@ -7,7 +7,7 @@ test('Generate Random Email', async ({ page }) => {
         return `${username}@${domain}`;
     }
     const randomEmail = generateRandomEmail();
-    console.log('Generated Random Email:', randomEmail);
+    console.log('Generated Random Email is:', randomEmail);
 });
 
 //---------------------------------------------------
