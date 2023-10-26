@@ -28,7 +28,7 @@ test('Login with happy scenarios', async ({ page }) => {
     await page.getByPlaceholder('Password').type('Testing@123')
     await page.locator('#signIn').click()
     await expect(page).toHaveURL(/MyJobs/);
-   // await page.locator('#navbarDropdownMenuLink2').click()
+    // await page.locator('#navbarDropdownMenuLink2').click()
     //await page.locator('#navbarDropdownMenu').click();
     //await expect(page).toHaveTitle('Jobs Page');
 });
@@ -133,7 +133,21 @@ test('Verify Quick  Menu', async ({ page }) => {
     await expect(page.locator('.h3')).toHaveText(/faq/, { ignoreCase: true });
     await page.pause()
 });
+//--------------------------------------------------------------------------------------------
+
+test('Generate Random Email', async ({ page }) => {
+
+
+    function generateRandomEmail() {
+        const username = Math.random().toString(36).substring(2, 10); // Random alphanumeric username
+        const domain = 'gmail.com';
+        return `${username}@${domain}`;
+    }
+
+    const randomEmail = generateRandomEmail();
+    console.log('Generated Random Email:', randomEmail);
 
 
 
+});
 
