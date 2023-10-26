@@ -28,8 +28,8 @@ test('Login with happy scenarios', async ({ page }) => {
     await page.getByPlaceholder('Password').type('Testing@123')
     await page.locator('#signIn').click()
     await expect(page).toHaveURL(/MyJobs/);
-    await page.locator('#navbarDropdownMenuLink2').click()
-    await page.locator('#navbarDropdownMenu').click();
+   // await page.locator('#navbarDropdownMenuLink2').click()
+    //await page.locator('#navbarDropdownMenu').click();
     //await expect(page).toHaveTitle('Jobs Page');
 });
 test('Verify the job listing titles', async ({ page }) => {
@@ -111,7 +111,7 @@ test('Verify register 2nd step', async ({ page }) => {
     expect(await page.isChecked('#customCheck1')).toBeTruthy()
     await page.pause()
 });
-test.only('Verify Quick  Menu', async ({ page }) => {
+test('Verify Quick  Menu', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/')
     await page.locator('.sign_in_detail').click()
     await page.getByPlaceholder('Email goes here').type('nanncy5@gmail.com')
