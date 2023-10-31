@@ -1,10 +1,10 @@
 // @ts-check
 const { defineConfig, devices } = require('@playwright/test');
-const config={
-timeout: 30*3000,   //overall test 30 sec, and for specific 5s
-expect:{
-  timeout:30000
-}
+const config = {
+  timeout: 30 * 3000,   //overall test 30 sec, and for specific 5s
+  expect: {
+    timeout: 30000
+  }
 
 
 }
@@ -36,8 +36,11 @@ module.exports = defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     name: 'chromium',
-    headless : true,
+    headless: true,
     trace: 'on-first-retry',
+    screenshot: 'on',
+    //trace: 'on' //can also use lec05
+    //trace: 'retain-on-failure',  //-for just failed TCs
 
   },
 
@@ -46,7 +49,7 @@ module.exports = defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
-      
+
     },
 
     // {
