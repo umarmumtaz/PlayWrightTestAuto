@@ -46,7 +46,7 @@ test('Verify register 2nd step', async ({ page }) => {
 
 
 //-----------------final one
-test.only('Register Step-1', async ({ page }) => {
+test('Register Step-1', async ({ page }) => {
     await page.context().clearCookies();
 
     await page.reload({ hard: true });

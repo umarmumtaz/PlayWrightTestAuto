@@ -12,6 +12,9 @@
 //https://www.freecodecamp.org/news/guide-to-javascript-promises/
 
 //just random email generation code in JS
+// https://playwright.dev/docs/trace-viewer-intro
+
+
 const { test, expect } = require('@playwright/test')
 
 test('Generate Random Email', async ({ page }) => {
