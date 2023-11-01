@@ -136,47 +136,30 @@ test('Verify Quick  Menu', async ({ page }) => {
     await page.pause()
 });
 //--------------------------------------------------------------------------------------------
-test.only('job selection', async ({ page }) => {
+test('job selection', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/')
-
     const jobName = ('Jobtrain Test job')
-    const jobs = page.locator('.card-body')
+    const jobs = page.locator('.job-card')
 
     const count = await jobs.count();
 
     for (let i = 0; i < count; ++i) {
-      if (await jobs.nth(i).getByTitle('Click here to view Job detail for Jobtrain Test job').allTextContents() === jobName) 
+        if (await jobs.nth(i).getByTitle('Jobtrain Test job').allTextContents() === jobName) {
+            await jobs.nth(i).getByTitle('Jobtrain Test job').click();
 
-       {
-        await jobs.nth(i).locator('[role="/ybscareers/Job/JobDetail?JobId=20235"]').click('More..');
-break;
+            break;
         }
     }
     await page.pause()
 });
 
+//------------------------------
 
-
-test('job selection 2222', async ({ page }) => {
-    await page.goto('https://test.jobtrain.co.uk/ybscareers/');
-  
-    const jobDetailURL = 'https://test.jobtrain.co.uk/ybscareers/Job/JobDetail?JobId=20235';
-    const jobs = page.locator('.card-body');
-  
-    const count = await jobs.count();
-  
-    for (let i = 0; i < count; ++i) {
-      // Extract the URL of the job detail page for the current job card
-      const jobCard = jobs.nth(i);
-      const jobDetailLink = await jobCard.locator('a').first();
-      const jobDetailLinkHref = await jobDetailLink.getAttribute('href');
-  
-      if (jobDetailLinkHref === jobDetailURL) {
-        // If the job detail page URL matches, click on the job card to open it
-        await jobCard.click();
-        break;
-      }
-    }
-    await page.pause(); // This is for debugging and can be removed in the final version
-  });
-  
+test.only('Verify the static job', async ({ page }) => {
+    await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job')
+    await page.getByTitle('Jobtrain Test job').click()
+    const bol = await page.locator('.h3').isVisible('Jobtrain Test job')
+    console.log(bol)
+    expect(bol).toBeTruthy();
+    await page.pause()
+});
