@@ -158,8 +158,9 @@ test('job selection', async ({ page }) => {
 test.only('Verify the static job', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job')
     await page.getByTitle('Jobtrain Test job').click()
+    await page.locator('.page-header').first().waitFor()
     const bol = await page.locator('.h3').isVisible('Jobtrain Test job')
-    console.log(bol)
+    console.log('Job is there',bol)
     expect(bol).toBeTruthy();
     await page.pause()
 });
