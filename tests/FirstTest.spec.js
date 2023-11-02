@@ -160,7 +160,7 @@ test('Verify the static job', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job')
     await page.getByTitle('Jobtrain Test job').click()
     await page.locator('.page-header').first().waitFor()
-    const bol = await page.locator('.h3').isVisible('Jobtrain Test job')
+    const bol = await page.locator('.jt-page-title').isVisible('Jobtrain Test job')
     console.log('Job is there', bol)
     expect(bol).toBeTruthy();
     await page.pause()
@@ -180,5 +180,12 @@ test.only('Verify the dropdown list dynamically', async ({ page }) => {
             break;
         }
     }
+    await page.locator('#searchFiltersApplyButton').click()
+    const bol = await page.locator('.jt-page-title').isVisible('Jobtrain Test job')
+    console.log('Job is there', bol)
+  // await expect(page.locator('.jt-page-title')).toHaveText()
     await page.pause()
 });
+
+
+
