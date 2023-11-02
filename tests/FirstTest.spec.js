@@ -169,24 +169,16 @@ test('Verify the static job', async ({ page }) => {
 
 test.only('Verify the dropdown list dynamically', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
-    // await page.getByLabel('distance').click()
-    //const dropdown = page.locator('.select2-search');
-    //n await dropdown.waitFor();
-    await page.locator('#searchFilterRegions').type('East', { delay: 100 })
-    const dropdown = page.locator('.select2-results');
-    await dropdown.waitFor();
-
-    const optionCount = await dropdown.locator('.select2-results__option').count();
-    
-
-    for (let i = 0; i < optionCount; ++i) {
-        const text = await dropdown.locator(".select2-results__option").nth(i).textContent();
+    await page.locator('#searchFilterRegions').type('East', { delay: 100 })//select the whole section with delay
+    const dropdown = page.locator('.select2-results');//select the total list 
+    await dropdown.waitFor(); //wait for loading
+    const optionCount = await dropdown.locator('.select2-results__option').count(); //count the totla number with loop
+    for (let i = 0; i < optionCount; ++i) {  
+        const text = await dropdown.locator(".select2-results__option").nth(i).textContent();//locator with total options
         if (text === "East Anglia") {
-            await dropdown.locator(".select2-results__option").nth(i).click();
+            await dropdown.locator(".select2-results__option").nth(i).click(); //click on the mentioned above
             break;
         }
-
     }
-
     await page.pause()
 });
