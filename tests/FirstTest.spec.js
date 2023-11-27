@@ -183,9 +183,9 @@ test.only('Verify the dropdown list dynamically', async ({ page }) => {
     await page.locator('#searchFiltersApplyButton').click()
     const bol = await page.locator('.jt-page-title').isVisible('Jobtrain Test job')
     console.log('Job is there', bol)
-  // await expect(page.locator('.jt-page-title')).toHaveText()
+  // await expect(page.locator('.jt-page-title')).toHaveText() lec006
     await page.pause()
 });
 
-
+//we can alos use parent class with child if not found line (.<> .<>)
 
