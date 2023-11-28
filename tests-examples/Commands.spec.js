@@ -10,7 +10,7 @@
     //npx playwright test ./tests/FirstTest.spec.js --headed
 
 // npx playwright test ./tests/randomEmails.spec.js
-
+// npx playwright show-report
     
   //   test('verifying the max values', async ({ page }) => {
   //     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
