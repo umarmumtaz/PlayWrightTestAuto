@@ -20,8 +20,7 @@ import { LoginPage } from './LoginPage'
 test('Verify the login with Page object', async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.goToLoginPage();
-    await loginPage.validLogin('nanncy12@gmail.com', 'Testing@123"')
-    await page.getByRole('link', { name: 'I forgot my password' }).click();
+    await loginPage.validLogin('nanncy12@gmail.com', 'Testing@123')
     await page.pause();
 });
   
