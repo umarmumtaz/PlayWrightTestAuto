@@ -17,16 +17,14 @@
 
 import { test, expect } from '@playwright/test';
 import { LoginPage } from './LoginPage'
-//import { ForgotPage } from './ForgotPage'
+import { ForgotPage } from './ForgotPage'
 test('Verify the login with Page object', async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.goToLoginPage();
     await loginPage.validLogin('nanncy12@gmail.com', 'Testing@123')
+    //forgot
+    const forgotPage = new ForgotPage(page)
+    forgotPage.Forgot()
     await page.pause();
-//forgot
-// const ForgotPage =  new ForgotPage(page);
-// await ForgotPage.goToForgotPage();
-
 
 });
-  
