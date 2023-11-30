@@ -12,7 +12,7 @@
 //     await page.pause()
 // });
 
-//npx playwright test ./pageobjects/ClientappPO.spec.js
+//npx playwright test ./PageObjectModel/ClientappPO.spec.js  --headed
 //--------------------------------------
 
 import { test, expect } from '@playwright/test';
@@ -20,9 +20,8 @@ import { LoginPage } from './LoginPage'
 test('Verify the login with Page object', async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.goToLoginPage();
-    await loginPage.validLogin('nanncya@gmail.com', 'Testing@123"')
-    await page.locator('#signIn').click()
-   // await expect(page).toHaveURL(/MyJobs/);
-    await page.pause();
-
+    await loginPage.validLogin('nanncy+987@gmail.com', 'Testing@123"')
+    //await this.loginPage.click('#loginButton');
+   //await loginPage.signInbutton.click();
+page.pause();
 });

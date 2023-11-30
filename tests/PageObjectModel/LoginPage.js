@@ -35,6 +35,6 @@ exports.LoginPage = class LoginPage {
     async validLogin(username, password) {
         await this.userName.type(username);
         await this.password.type(password);
-        await this.signInbutton.click();
+        await this.page.click("#signIn");
     }
 }
