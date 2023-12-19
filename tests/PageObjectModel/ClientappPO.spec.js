@@ -18,13 +18,19 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from './LoginPage'
 import { ForgotPage } from './ForgotPage'
+import { RegisterPage } from './RegisterPage';
 test('Verify the login with Page object', async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.goToLoginPage();
     await loginPage.validLogin('nanncy12@gmail.com', 'Testing@123')
-    //forgot
+    //forgot Page
     const forgotPage = new ForgotPage(page)
     forgotPage.Forgot()
     await page.pause();
+    //Register PAge
+    //     const registerPage =new RegisterPage(page)
+    //    await registerPage.goToRegisterPage();
+    //     await registerPage.ValidRegister(randomEmail, password)
+    //     await page.pause()
 
 });
