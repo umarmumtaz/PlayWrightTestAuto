@@ -43,8 +43,5 @@ async ValidRegister(randomEmail, password){
 
 }
 
-
-
-
         }}
         //npx playwright test ./tests/ClientappPO.spec.js

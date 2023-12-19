@@ -5,14 +5,18 @@ exports.ForgotPage = class ForgotPage {
         this.page = (page);
         this.signIn = page.locator('.sign_in_detail');
         this.forgotbutton = page.getByRole('link', { name: 'I forgot my password' });
-        this.recoverPassword=page.locator('#RecoverPassword');
-       // this.resetPassword =page.locator('#signInEmail').fill('nanncy@gmail.com')
-        //this.submit=page.locator('.btn-primary')
+        this. recoverPassword= page.getByRole('button', { name: 'Recover Password' })
+        this.typeEmail= page.getByPlaceholder('Email goes here')
+        this.requestButton =page.getByRole('button', { name: 'Request Password' })
+
     }
-    async Forgot() {
+    async Forgot(typeEmail,) {
         await this.signIn.click()
         await this.forgotbutton.click()
         await this.recoverPassword.click()
+        await this.typeEmail.type(typeEmail)
+        await this.requestButton.click()
+
        // await this.submit.click()
        //await expect (page.locator('.register__title').textContent()).toEqual('Reset Password')
        //  expect(await page.locator('.register__title').textContent()).toEqual('Reset Password')

@@ -25,7 +25,7 @@ test('Verify the login with Page object', async ({ page }) => {
     await loginPage.validLogin('nanncy12@gmail.com', 'Testing@123')
     //forgot Page
     const forgotPage = new ForgotPage(page)
-    forgotPage.Forgot()
+    await forgotPage.Forgot('nanncy10@gmail.com')
     await page.pause();
     //Register PAge
     //     const registerPage =new RegisterPage(page)
