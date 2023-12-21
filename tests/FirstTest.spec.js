@@ -70,7 +70,7 @@ test('verifying the filters in the job listing page', async ({ page }) => {
     await page.locator("#searchFiltersApplyButton").click();
     await page.pause()
 });
-test('Verify the search filters with parameters', async ({ page }) => {
+test.only('Verify the search filters with parameters', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel(' Distance').selectOption('50');
     await page.getByLabel('Regions').selectOption("East Anglia");
@@ -81,7 +81,7 @@ test('Verify the search filters with parameters', async ({ page }) => {
     console.log(('There are 7 jobs matching'))//static content
     await page.pause()
 });
-test('Verify the total number of live jobs', async ({ page }) => {
+test.only('Verify the total number of live jobs', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     const list = await page.locator('#searchResults');
     const records = await list.getByTitle('Click here to view Job detail for');
@@ -167,7 +167,7 @@ test('Verify the static job', async ({ page }) => {
 });
 
 
-test.only('Verify the dropdown list dynamically', async ({ page }) => {
+test('Verify the dropdown list dynamically', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.locator('#searchFilterRegions').type('East', { delay: 100 })//select the whole section with delay
     const dropdown = page.locator('.select2-results');//select the total list 
