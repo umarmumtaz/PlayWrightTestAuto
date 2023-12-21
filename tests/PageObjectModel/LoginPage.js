@@ -15,7 +15,6 @@ exports.LoginPage = class LoginPage {
     }
     //its a single function can also be use atomic function that is for each, and its reusable
     async validLogin(username, password) {
-        await this.applyFilter.click()
         await this.signIn.click();
         await this.username.type(username);
         await this.password.type(password);

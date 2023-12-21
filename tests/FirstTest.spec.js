@@ -81,7 +81,7 @@ test.only('Verify the search filters with parameters', async ({ page }) => {
     console.log(('There are 7 jobs matching'))//static content
     await page.pause()
 });
-test.only('Verify the total number of live jobs', async ({ page }) => {
+test('Verify the total number of live jobs', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     const list = await page.locator('#searchResults');
     const records = await list.getByTitle('Click here to view Job detail for');

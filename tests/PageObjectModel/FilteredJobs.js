@@ -3,6 +3,7 @@ exports.FilteredJobs= class FilteredJobs{
 constructor(page)
 {
 this.page=page;
+//this.page= await.getByRole('option', { name: 'Aberdeen1' }).click();
 }
 
 async goToJobSearchPage() {
@@ -10,17 +11,17 @@ async goToJobSearchPage() {
 }
 
 async selectDistance(distance){
-    await this.page.getByLabel('Distance').selectOption(distance);
+    //await this.selectDistance.selectOption(distance)
 
 }
-// async selectLocation(Aberdeen1){
-//     await this.page.getByLabel('Location').selectOption(Aberdeen1);
+async selectLocation(){
+//     await this.page.getByLabel('Location').selectOption(location);
+await this.page.getByRole('option', { name: 'Aberdeen1' }).click();
+ }
+// async selectDatePosted(Anytime){
+//     await this.page.getByText('Date Posted').selectOption(Anytime);
 
 // }
-async selectDatePosted(Anytime){
-    await this.page.getByText('Date Posted').selectOption(Anytime);
-
-}
 async selectApplyFilters(applyFilters){
 
     await this.page.locator("#searchFiltersApplyButton").click();
