@@ -113,7 +113,7 @@ test('Verify register 2nd step', async ({ page }) => {
     expect(await page.isChecked('#customCheck1')).toBeTruthy()
     await page.pause()
 });
-test.only('Verify Quick  Menu', async ({ page }) => {
+test('Verify Quick  Menu', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/')
     await page.locator('.sign_in_detail').click()
     await page.getByPlaceholder('Email goes here').type('nanncy12@gmail.com')
