@@ -41,7 +41,7 @@ test('No. of live jobs', async ({ page }) => {
     await jobSearchPage.pause();
 });
 
-test.only('Verify Quick Menu', async ({ page }) => {
+test('Verify Quick Menu', async ({ page }) => {
     const quickMenu = new QuickMenu(page);
     await quickMenu.goToLoginPage();
     await expect(page).toHaveTitle('Jobs Page - YBS Careers | Jobs | Search here for your perfect career')
