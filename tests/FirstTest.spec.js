@@ -70,7 +70,7 @@ test('verifying the filters in the job listing page', async ({ page }) => {
     await page.locator("#searchFiltersApplyButton").click();
     await page.pause()
 });
-test.only('Verify the search filters with parameters', async ({ page }) => {
+test('Verify the search filters with parameters', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/Home/Job');
     await page.getByLabel(' Distance').selectOption('50');
     await page.getByLabel('Regions').selectOption("East Anglia");
@@ -113,10 +113,10 @@ test('Verify register 2nd step', async ({ page }) => {
     expect(await page.isChecked('#customCheck1')).toBeTruthy()
     await page.pause()
 });
-test('Verify Quick  Menu', async ({ page }) => {
+test.only('Verify Quick  Menu', async ({ page }) => {
     await page.goto('https://test.jobtrain.co.uk/ybscareers/')
     await page.locator('.sign_in_detail').click()
-    await page.getByPlaceholder('Email goes here').type('nanncy5@gmail.com')
+    await page.getByPlaceholder('Email goes here').type('nanncy12@gmail.com')
     await page.getByPlaceholder('Password').type('Testing@123')
     await page.locator('#signIn').click()
     await expect(page).toHaveURL(/MyJobs/);

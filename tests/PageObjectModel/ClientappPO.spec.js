@@ -5,7 +5,10 @@ import { ForgotPage } from './ForgotPage'
 import { RegisterPage } from './RegisterPage';
 import { JobSearchPage } from './JobSearchPage';
 import { FilteredJobs } from './FilteredJobs'
-test.only('Login Page', async ({ page }) => {
+import { QuickMenu } from './QuickMenu';
+import exp from 'constants';
+
+test('Login Page', async ({ page }) => {
     const loginPage = new LoginPage(page);
     await loginPage.goToLoginPage();
     await loginPage.validLogin('nanncy12@gmail.com', 'Testing@123')
@@ -37,6 +40,26 @@ test('No. of live jobs', async ({ page }) => {
     console.log("Output result is ", searchResultsInnerTexts);
     await jobSearchPage.pause();
 });
+
+test.only('Verify Quick Menu', async ({ page }) => {
+    const quickMenu = new QuickMenu(page);
+    await quickMenu.goToLoginPage();
+    await expect(page).toHaveTitle('Jobs Page - YBS Careers | Jobs | Search here for your perfect career')
+    const pageTitle = page.locator('.h3.jt-page-title')
+    await expect(pageTitle).toHaveText('Jobs for you')
+    //console.log('Dashboard Page title is ', pageTitle)
+    await quickMenu.validLogin('nanncy12@gmail.com', 'Testing@123')
+    // const jobPageTitle = page.locator('/html[1]/body[1]/div[3]/div[2]/div[1]/h1[1]')
+    // await expect(jobPageTitle).toHaveText('My Jobs')
+    await page.pause();
+
+});
+
+
+
+
+
+
 
 
 // test.only('Job with Filters', async ({ page }) => {
