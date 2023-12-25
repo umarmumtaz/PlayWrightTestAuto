@@ -6,6 +6,7 @@ import { RegisterPage } from './RegisterPage';
 import { JobSearchPage } from './JobSearchPage';
 import { FilteredJobs } from './FilteredJobs'
 import { QuickMenu } from './QuickMenu';
+import { JobDetailPage } from './JobDetailPage';
 import exp from 'constants';
 
 test('Login Page', async ({ page }) => {
@@ -38,8 +39,16 @@ test('No. of live jobs', async ({ page }) => {
     console.log('Total live jobs are:', totalLiveJobsCount);
     const searchResultsInnerTexts = await jobSearchPage.getSearchResultsInnerTexts();
     console.log("Output result is ", searchResultsInnerTexts);
+   // await jobDetailPage.checkLiveJob('Jobtrain Test job')
+//const jobs=new jobSearchPage(page)
+ await jobSearchPage.checkLiveJob('Jobtrain Test job')
+
+
     await jobSearchPage.pause();
 });
+
+
+
 
 test('Verify Quick Menu', async ({ page }) => {
     const quickMenu = new QuickMenu(page);
@@ -56,10 +65,13 @@ test('Verify Quick Menu', async ({ page }) => {
 });
 
 
+test('Job Details Page', async ({ page }) => {
+    const jobDetailPage = JobDetailPage(page)
+    await jobDetailPage.goToDashboard();
+    const liveJobs = await jobDetailPage.getTotalLiveJobsCount();
+    console.log('Total live jobs are:', liveJobs);
 
-
-
-
+});
 
 
 // test.only('Job with Filters', async ({ page }) => {
@@ -73,7 +85,20 @@ test('Verify Quick Menu', async ({ page }) => {
 
 // });
 
+test.only('No. of live jobs gpt', async ({ page }) => {
+    const jobSearchPage = new JobSearchPage(page);
+    await jobSearchPage.goToJobSearchPage();
+    const totalLiveJobsCount = await jobSearchPage.getTotalLiveJobsCount();
+    console.log('Total live jobs are:', totalLiveJobsCount);
+    const searchResultsInnerTexts = await jobSearchPage.getSearchResultsInnerTexts();
+    console.log("Output result is ", searchResultsInnerTexts);
+    
+    // Use await since checkLiveJob is an async function
+    const isJobPresent = await jobSearchPage.checkLiveJob('Jobtrain Test job');
+    console.log('Is Jobtrain Test job present?', isJobPresent);
 
+    await jobSearchPage.pause();
+});
 
 
 
