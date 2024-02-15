@@ -24,28 +24,31 @@ test('Prctise', async ({ page }) => {
     page.pause()
 
 });
-
-
-test.only('Prctise2', async ({ page }) => {
+test('Prctise2', async ({ page }) => {
     await page.goto("https://test.jobtrain.co.uk/ybscareers/Home/Job");
-    // const pageTitleLogin = await page.locator('.jt-page-title');
-    // await expect(pageTitleLogin).toHaveText('Jobs for you');
-    // const pageTitleText = await pageTitleLogin.innerText();
-    // console.log(pageTitleText)
+    const pageTitleLogin = await page.locator('.jt-page-title');
+    await expect(pageTitleLogin).toHaveText('Jobs for you');
+    const pageTitleText = await pageTitleLogin.innerText();
+    console.log(pageTitleText)
 
-    // const element = await page.locator('.jt-page-title');
-    // await expect(element).toBeAttached();
-    // const element2 = await element.innerHTML()
-    // console.log(element2)
+    const element = await page.locator('.jt-page-title');
+    await expect(element).toBeAttached();
+    const element2 = await element.innerHTML()
+    console.log(element2)
 
-await page.locator('.sign_in_detail').click()
-await page.locator('.register').click()
-await page.locator('#UserName').fill('malvin1@gmail.com');
-    await page.getByPlaceholder('Type a password here').fill('Testing@123');
 });
 
 
+test.only('Prctise -checked/disabled', async ({ page }) => {
+    await page.goto("file:///C:/Users/urmz/Documents/check.html");
+    const testChecked = await page.locator('#myCheckbox')
+    await expect(testChecked).toBeChecked();
+    const testDisabled = page.locator('#myInput')
+    await expect(testDisabled).toBeDisabled()
 
+    page.pause();
+
+});
 
 
 
