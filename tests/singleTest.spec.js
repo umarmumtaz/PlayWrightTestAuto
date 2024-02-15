@@ -41,10 +41,19 @@ test('Prctise2', async ({ page }) => {
 
 test.only('Prctise -checked/disabled', async ({ page }) => {
     await page.goto("file:///C:/Users/urmz/Documents/check.html");
-    const testChecked = await page.locator('#myCheckbox')
+    const testChecked = page.locator('#myCheckbox')
     await expect(testChecked).toBeChecked();
     const testDisabled = page.locator('#myInput')
     await expect(testDisabled).toBeDisabled()
+    const testEditable = page.locator('#username')
+    await expect(testEditable).toBeEditable()
+    await page.locator('#username').fill('nanncy')
+    const testEditable2 = await testEditable.innerText()
+    console.log(testEditable2) //how to check value in console is pending
+    const testEmpty = page.locator('#emptyDiv')
+    await expect(testEmpty).toBeEmpty()
+    const testEnabled = page.locator('#enabledButton')
+    await expect(testEnabled).toBeEnabled()
 
     page.pause();
 
