@@ -1,0 +1,73 @@
+// this file is linked with the docker
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Peactise</title>
+
+   <style>
+body{
+background-color: lightgreen;
+}
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #935a05;
+}
+p {
+  text-align: left;
+  text-transform: uppercase;
+  color: #0a39f6;
+}
+
+input[type=text]:disabled{
+
+    background-color: rgb(125, 120, 120);
+}
+#disabledButton{
+    background-color: rgb(125, 120, 120);
+}
+
+   </style>
+
+</head>
+
+
+
+
+
+
+
+
+
+
+<body>
+
+    <h1>Testing Site Local</h1>
+    <h2>Testing the Checkbox Selection</h2>
+    <label>
+        <input type="checkbox" id="myCheckbox" checked> Checkbox
+    </label>
+    <h2>Disabled Input Test</h2>
+    <input type="text" id="myInput" value="Hello" disabled>
+
+    <h3>Editable Elements Test</h3>
+    <label for="username">Username:</label>
+    <input type="text" id="username" value="" placeholder="Enter your username">
+    <div id="contentEditableDiv" contenteditable="true">This content is editable.</div>
+
+    <h4>Empty Element Test</h4>
+    <div id="emptyDiv"></div>
+    <p id="nonEmptyParagraph">This paragraph is not empty.</p>
+
+    <h5>Enabled Element Test</h5>
+    <input type="text" id="enabledInput" placeholder="Enter text" />
+    <button id="enabledButton">Click me</button>
+    <button id="disabledButton" disabled>Disabled button</button>
+
+</body>
+
+</html>
