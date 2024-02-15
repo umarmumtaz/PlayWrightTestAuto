@@ -40,7 +40,7 @@ test('Prctise2', async ({ page }) => {
 
 
 test.only('Prctise -checked/disabled', async ({ page }) => {
-    await page.goto("file:///C:/Users/urmz/Documents/check.html");
+    await page.goto("file:///C:/PlayWrightTestAuto/check.html");
     const testChecked = page.locator('#myCheckbox')
     await expect(testChecked).toBeChecked();
     const testDisabled = page.locator('#myInput')
