@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Peactise</title>
+
+    <style>
+        body {
+            background-color: lightgreen;
+        }
+
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+            color: #935a05;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+</head>
+
+
+
+
+
+<body>
+
+    <h1>Testing Site Local - Page 2</h1>
+
+
+    <h2>Focus Test</h2>
+    <label for="username">Username:</label>
+    <input type="text" id="username1" placeholder="Enter your username">
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Enter your password">
+    <br>
+    <br> <button id="loginButton">Login</button></br>
+    <script src="check2.js"></script>
+    <br>
+
+    <h3>Hidden Test</h3>
+    <p id="hiddenParagraph">This paragraph is initially visible.</p>
+   <br> <button id="toggleButton">Toggle Visibility</button></br>
+
+    <script>
+        const hiddenParagraph = document.getElementById('hiddenParagraph');
+        const toggleButton = document.getElementById('toggleButton');
+
+        toggleButton.addEventListener('click', () => {
+            hiddenParagraph.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+
+</html>

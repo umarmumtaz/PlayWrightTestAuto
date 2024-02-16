@@ -24,7 +24,7 @@ test('Prctise', async ({ page }) => {
     page.pause()
 
 });
-test('Prctise2', async ({ page }) => {
+test('Prctise1 - Playwright Documentation', async ({ page }) => {
     await page.goto("https://test.jobtrain.co.uk/ybscareers/Home/Job");
     const pageTitleLogin = await page.locator('.jt-page-title');
     await expect(pageTitleLogin).toHaveText('Jobs for you');
@@ -39,7 +39,7 @@ test('Prctise2', async ({ page }) => {
 });
 
 
-test.only('Prctise -checked/disabled', async ({ page }) => {
+test('Prctise 2 -Playwright Documentation', async ({ page }) => {
     await page.goto("file:///C:/PlayWrightTestAuto/check.html");
     const testChecked = page.locator('#myCheckbox')
     await expect(testChecked).toBeChecked();
@@ -55,13 +55,36 @@ test.only('Prctise -checked/disabled', async ({ page }) => {
     const testEnabled = page.locator('#enabledButton')
     await expect(testEnabled).toBeEnabled()
 
+    await page.focus('#username1')
+    const testFocused = page.locator('#username1')
+    await expect(testFocused).toBeFocused()
+    await page.focus('#password')
+    const testFocused2 = page.locator('#password')
+    await expect(testFocused2).toBeFocused()
+    await page.focus('#loginButton')
+    const testFocused3 = page.locator('#loginButton');
+    await expect(testFocused3).toBeFocused()
+    page.pause();
+
+});
+
+test.only('Prctise 3 -Playwright Documentation', async ({ page }) => {
+    await page.goto("file:///C:/PlayWrightTestAuto/check.html");
+    await page.locator('[href*="check2.html"]').click()
+    //https://playwrightsolutions.com/how-can-i-create-a-locator-from-a-link-with-a-unique-href-in-playwright/
+    const testHidden = await page.locator('#hiddenParagraph')
+    await expect(testHidden).not.toBeHidden()
+    await page.click('#toggleButton')
+    const testHidden2 = page.locator('#hiddenParagraph')
+    await expect(testHidden2).toBeHidden()
+
+
     page.pause();
 
 });
 
 
+//const messageLink = page.locator('[href*="#/admin/messages"]')
 
-
-
-//npx playwright test ./tests/singleTest.spec.js  --headed
+//npx playwright test ./tests/playwrightDoc.spec.js  --headed
 
