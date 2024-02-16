@@ -76,6 +76,7 @@ test.only('Prctise 3 -Playwright Documentation', async ({ page }) => {
     await expect(testHidden).not.toBeHidden()
     await page.click('#toggleButton')
     const testHidden2 = page.locator('#hiddenParagraph')
+    console.log('Locator found:', testHidden2);
     await expect(testHidden2).toBeHidden()
 
 
