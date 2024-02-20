@@ -20,14 +20,11 @@
         .hidden {
             display: none;
         }
-.highlighted {
-    color: red;
-    font-weight: bold;
-}
 
-
-
-
+        .highlighted {
+            color: red;
+            font-weight: bold;
+        }
     </style>
 
 </head>
@@ -51,7 +48,8 @@
     <br> <button id="loginButton" data-testid="submit-button">Login</button></br>
     <script src="check2.js"></script>
     <br>
-    <p id="textParagraph" class="highlighted">This is a sample paragraph with some text content, and CSS class as well for toHaveClass verification.</p>
+    <p id="textParagraph" class="highlighted">This is a sample paragraph with some text content, and CSS class as well
+        for toHaveClass verification.</p>
 
     <h3>Hidden Test</h3>
     <p id="hiddenParagraph">This paragraph is initially visible.</p>
@@ -59,7 +57,9 @@
 
     <h4>Attribute Test</h4>
     <button id="myButtonatt" disabled>Click me</button>
-
+    <h5>Test the toHaveJS Propery</h5>
+    <br> <button id="jsButton" customProperty="true">Click Here</button>
+    </br>
     <script>
         const hiddenParagraph = document.getElementById('hiddenParagraph');
         const toggleButton = document.getElementById('toggleButton');
@@ -67,6 +67,7 @@
         toggleButton.addEventListener('click', () => {
             hiddenParagraph.classList.toggle('hidden');
         });
+        document.getElementById('jsButton').customProperty = true;
     </script>
 
 </body>

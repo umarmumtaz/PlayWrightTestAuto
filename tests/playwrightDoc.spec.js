@@ -31,6 +31,9 @@ test('Prctise1 - Playwright Documentation', async ({ page }) => {
     const pageTitleText = await pageTitleLogin.innerText();
     console.log(pageTitleText)
 
+    const toHaveText2 = page.locator('.jt-page-title')
+    await expect(toHaveText2).toHaveText(/Jobs/)
+
     const element = await page.locator('.jt-page-title');
     await expect(element).toBeAttached();
     const element2 = await element.innerHTML()
@@ -68,7 +71,7 @@ test('Prctise 2 -Playwright Documentation', async ({ page }) => {
 
 });
 
-test.only('Prctise 3 -Playwright Documentation', async ({ page }) => {
+test('Prctise 3 -Playwright Documentation', async ({ page }) => {
     await page.goto("file:///C:/PlayWrightTestAuto/check.html");
     await page.locator('[href*="check2.html"]').click()
     //https://playwrightsolutions.com/how-can-i-create-a-locator-from-a-link-with-a-unique-href-in-playwright/
@@ -92,6 +95,17 @@ test.only('Prctise 3 -Playwright Documentation', async ({ page }) => {
     const testHaveClass = page.locator('#textParagraph')
     await expect(testHaveClass).toHaveClass('highlighted', 'sample paragraph') //(/sample paragraph/)
     console.log(testHaveClass)
+
+    const testHavecss = await page.locator('#textParagraph')
+    await expect(testHavecss).toHaveCSS('color', 'rgb(255, 0, 0)')
+
+    const testHaveid = page.locator('.highlighted')
+    await expect(testHaveid).toHaveId('textParagraph')
+
+    const testjsProperty = page.locator('#jsButton')
+    await expect(testjsProperty).toHaveJSProperty('customProperty', true)
+
+    await expect(page).toHaveScreenshot('PlayWrightTestAuto2.png')
     page.pause();
 
 });
