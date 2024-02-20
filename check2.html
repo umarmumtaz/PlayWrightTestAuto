@@ -20,6 +20,14 @@
         .hidden {
             display: none;
         }
+.highlighted {
+    color: red;
+    font-weight: bold;
+}
+
+
+
+
     </style>
 
 </head>
@@ -43,7 +51,7 @@
     <br> <button id="loginButton" data-testid="submit-button">Login</button></br>
     <script src="check2.js"></script>
     <br>
-    <p id="textParagraph">This is a sample paragraph with some text content.</p>
+    <p id="textParagraph" class="highlighted">This is a sample paragraph with some text content, and CSS class as well for toHaveClass verification.</p>
 
     <h3>Hidden Test</h3>
     <p id="hiddenParagraph">This paragraph is initially visible.</p>
