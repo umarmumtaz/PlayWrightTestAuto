@@ -73,19 +73,30 @@ test.only('Prctise 3 -Playwright Documentation', async ({ page }) => {
     await page.locator('[href*="check2.html"]').click()
     //https://playwrightsolutions.com/how-can-i-create-a-locator-from-a-link-with-a-unique-href-in-playwright/
     const testHidden = await page.locator('#hiddenParagraph')
-    await expect(testHidden).not.toBeHidden()
+    await expect(testHidden).not.toBeHidden()//tobevisible
     await page.click('#toggleButton')
     const testHidden2 = page.locator('#hiddenParagraph')
     console.log('Locator found:', testHidden2);
-    await expect(testHidden2).toBeHidden()
+    await expect(testHidden2).toBeHidden() //not.tobevisile
 
+    const testContain = page.locator('#textParagraph')
+    const testContain2 = await testContain.innerText()
+    await expect(testContain2).toContain('sample paragraph')
+
+    const testAttribute = page.locator('#myButtonatt')
+    await expect(testAttribute).toHaveAttribute('disabled', '')
+
+    const testAttributeName = page.locator('#loginButton')
+    await expect(testAttributeName).toHaveAttribute('data-testid', 'submit-button')
 
     page.pause();
 
 });
 
 
-//const messageLink = page.locator('[href*="#/admin/messages"]')
+
+
+
 
 //npx playwright test ./tests/playwrightDoc.spec.js  --headed
 

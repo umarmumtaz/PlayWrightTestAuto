@@ -40,13 +40,17 @@
     <label for="password">Password:</label>
     <input type="password" id="password" placeholder="Enter your password">
     <br>
-    <br> <button id="loginButton">Login</button></br>
+    <br> <button id="loginButton" data-testid="submit-button">Login</button></br>
     <script src="check2.js"></script>
     <br>
+    <p id="textParagraph">This is a sample paragraph with some text content.</p>
 
     <h3>Hidden Test</h3>
     <p id="hiddenParagraph">This paragraph is initially visible.</p>
     <br> <button id="toggleButton">Toggle Visibility</button></br>
+
+    <h4>Attribute Test</h4>
+    <button id="myButtonatt" disabled>Click me</button>
 
     <script>
         const hiddenParagraph = document.getElementById('hiddenParagraph');
