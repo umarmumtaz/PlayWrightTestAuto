@@ -89,9 +89,9 @@ test.only('Prctise 3 -Playwright Documentation', async ({ page }) => {
     const testAttributeName = page.locator('#loginButton')
     await expect(testAttributeName).toHaveAttribute('data-testid', 'submit-button')
 
-    const testHaveClass =page.locator('#textParagraph')
-    await expect(testHaveClass).toHaveClass('highlighted', 'sample paragraph')
-console.log(testHaveClass)
+    const testHaveClass = page.locator('#textParagraph')
+    await expect(testHaveClass).toHaveClass('highlighted', 'sample paragraph') //(/sample paragraph/)
+    console.log(testHaveClass)
     page.pause();
 
 });
