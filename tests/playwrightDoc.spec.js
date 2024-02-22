@@ -24,22 +24,7 @@ test('Prctise', async ({ page }) => {
     page.pause()
 
 });
-test('Prctise1 - Playwright Documentation', async ({ page }) => {
-    await page.goto("https://test.jobtrain.co.uk/ybscareers/Home/Job");
-    const pageTitleLogin = await page.locator('.jt-page-title');
-    await expect(pageTitleLogin).toHaveText('Jobs for you');
-    const pageTitleText = await pageTitleLogin.innerText();
-    console.log(pageTitleText)
-
-    const toHaveText2 = page.locator('.jt-page-title')
-    await expect(toHaveText2).toHaveText(/Jobs/)
-
-    const element = await page.locator('.jt-page-title');
-    await expect(element).toBeAttached();
-    const element2 = await element.innerHTML()
-    console.log(element2)
-
-});
+ 
 
 
 test('Prctise 2 -Playwright Documentation', async ({ page }) => {
@@ -110,8 +95,16 @@ test('Prctise 3 -Playwright Documentation', async ({ page }) => {
 
 });
 
+test.only('fixtures', async ({ page }) => {
+    test.info('Starting the test');
+    await page.goto("https://test.jobtrain.co.uk/ybscareers/Home/Job");
+    test.info("https://test.jobtrain.co.uk/ybscareers/Home/Job");
+    page.pause()
 
+});
+ 
 
+ 
 
 
 

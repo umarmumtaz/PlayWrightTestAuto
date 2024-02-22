@@ -205,3 +205,5 @@ if (myage >=18){
 }else{
     drink3='watar';
 }console.log(drink3)
+
+
